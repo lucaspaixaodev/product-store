@@ -2,11 +2,19 @@
   "products": [
     {
       "id": "1",
-      "title": "Produto de teste"
+      "title": "Mouse"
     },
     {
       "id": "8c0c",
-      "title": "Lucas"
+      "title": "Teclado"
+    },
+    {
+      "id": "f88e",
+      "title": "Monitor"
+    },
+    {
+      "id": "95bd",
+      "title": "Cabo HDMI"
     }
   ]
 }
