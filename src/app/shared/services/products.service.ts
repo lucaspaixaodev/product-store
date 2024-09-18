@@ -8,13 +8,13 @@ import { ProductPayLoad } from '../interfaces/payload-product.interface';
 })
 export class ProductsService {
 
-  httpClient = inject(HttpClient);
+  private _httpClient = inject(HttpClient);
 
   getAll() {
-    return this.httpClient.get<Product[]>('/api/products');
+    return this._httpClient.get<Product[]>('/api/products');
   }
 
   post(payload: ProductPayLoad) {
-    return this.httpClient.post('/api/products', payload);
+    return this._httpClient.post('/api/products', payload);
   }
 }
