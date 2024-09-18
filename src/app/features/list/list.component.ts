@@ -13,12 +13,12 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './list.component.scss'
 })
 export class ListComponent {
-  products: Product[] = [];
+  public products: Product[] = [];
 
-  productsService = inject(ProductsService);
+  private _productsService = inject(ProductsService);
 
   ngOnInit() {
-    this.productsService.getAll().subscribe((products) => {
+    this._productsService.getAll().subscribe((products) => {
       this.products = products;
     })
   }
