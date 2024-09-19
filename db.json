@@ -1,14 +1,6 @@
 {
   "products": [
     {
-      "title": "Mouse",
-      "id": "1"
-    },
-    {
-      "id": "8c0c",
-      "title": "Teclado"
-    },
-    {
       "id": "f88e",
       "title": "Monitor"
     },

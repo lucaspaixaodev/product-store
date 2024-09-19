@@ -15,5 +15,9 @@ export class CardComponent {
   public productTitle$$ = computed(() => this.product$$().title);
 
   @Output() edit = new EventEmitter();
+  @Output() delete = new EventEmitter();
 
+  onDelete() {
+    this.delete.emit();
+  }
 }
