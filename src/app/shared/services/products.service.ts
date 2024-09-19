@@ -7,14 +7,21 @@ import { ProductPayLoad } from '../interfaces/payload-product.interface';
   providedIn: 'root'
 })
 export class ProductsService {
-
   private _httpClient = inject(HttpClient);
 
-  getAll() {
+  public getAll() {
     return this._httpClient.get<Product[]>('/api/products');
   }
 
-  post(payload: ProductPayLoad) {
+  public get(id: string) {
+    return this._httpClient.get<Product>(`/api/products/${id}`);
+  }
+
+  public post(payload: ProductPayLoad) {
     return this._httpClient.post('/api/products', payload);
+  }
+
+  public put(id: string, product: Product) {
+    return this._httpClient.put(`/api/products/${id}`, product);
   }
 }
