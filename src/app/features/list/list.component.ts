@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { ProductsService } from '../../shared/services/products.service';
 import { Product } from '../../shared/interfaces/product.interface';
 import { CardComponent } from './components/card/card.component';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
@@ -13,13 +13,18 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './list.component.scss'
 })
 export class ListComponent {
-  public products: Product[] = [];
-
   private _productsService = inject(ProductsService);
+  private _router = inject(Router);
+
+  public products: Product[] = [];
 
   ngOnInit() {
     this._productsService.getAll().subscribe((products) => {
       this.products = products;
     })
+  }
+
+  onEdit() {
+    this._router.navigate(['/edit-product']);
   }
 }
