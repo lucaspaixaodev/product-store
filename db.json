@@ -1,8 +1,8 @@
 {
   "products": [
     {
-      "id": "1",
-      "title": "Mouse"
+      "title": "Mouse",
+      "id": "1"
     },
     {
       "id": "8c0c",
@@ -23,6 +23,10 @@
     {
       "id": "bab9",
       "title": "Cadeira Gamer"
+    },
+    {
+      "title": "RTX 3060TI",
+      "id": "8f20"
     }
   ]
 }
