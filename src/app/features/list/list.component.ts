@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog/delete-dialog.component';
 import { filter } from 'rxjs';
+import { DialogDeleteService } from '../../shared/services/dialog-delete.service';
 
 @Component({
   selector: 'app-list',
@@ -18,7 +19,7 @@ import { filter } from 'rxjs';
 export class ListComponent {
   private _productsService = inject(ProductsService);
   private _router = inject(Router);
-  private _dialog = inject(MatDialog);
+  private _dialogDeleteService = inject(DialogDeleteService);
 
   public products: Product[] = [];
 
@@ -33,13 +34,14 @@ export class ListComponent {
   }
 
   onDelete(product: Product) {
-    this._dialog.open(DeleteDialogComponent).afterClosed().pipe(filter((answer) => answer === true))
-    .subscribe(() => {
-    this._productsService.delete(product.id).subscribe(() => {
-      this._productsService.getAll().subscribe((products) => {
-        this.products = products;
+    this._dialogDeleteService.openDialog()
+    .pipe(filter((answer) => answer === true))
+      .subscribe(() => {
+        this._productsService.delete(product.id).subscribe(() => {
+          this._productsService.getAll().subscribe((products) => {
+            this.products = products;
+          })
+        })
       })
-    })
-  })
   }
 }
