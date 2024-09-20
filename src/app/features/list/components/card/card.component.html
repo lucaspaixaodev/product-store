@@ -3,7 +3,21 @@
     <mat-card-title> {{ productTitle$$() }}</mat-card-title>
   </mat-card-header>
   <mat-card-actions>
-    <button mat-raised-button color="accent" (click)="edit.emit()">Editar</button>
-    <button mat-raised-button color="accent" (click)="onDelete()">Deletar</button>
+    <button
+      class="button"
+      mat-raised-button
+      color="accent"
+      (click)="edit.emit()"
+    >
+      Editar
+    </button>
+
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="onDelete()"
+    >
+      Deletar
+    </button>
   </mat-card-actions>
 </mat-card>
